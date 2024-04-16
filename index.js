@@ -4,13 +4,19 @@ const contacts = require("./contacts");
 const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
     case "list":
-      return await console.table(await contacts.listContacts());
+      console.table(await contacts.listContacts());
+      break;
     case "get":
-      return await console.log(await contacts.getContactById(id));
+      console.log(await contacts.getContactById(id));
+      break;
     case "add":
-      return await console.log(await contacts.addContact(name, email, phone));
+      console.log(await contacts.addContact(name, email, phone));
+      break;
     case "remove":
-      return await console.log(await contacts.removeContact(id));
+      console.log(await contacts.removeContact(id));
+      break;
+    default:
+      console.log("No such operation");
   }
 };
 
